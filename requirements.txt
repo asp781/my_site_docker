@@ -7,3 +7,7 @@ sqlparse==0.4.4
 tzdata==2023.3
 gunicorn
 psycopg2-binary
+requests
+pytest
+pytest-django
+pytest-pythonpath
