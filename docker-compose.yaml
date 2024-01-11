@@ -6,7 +6,7 @@ services:
   # описание контейнера db
   db:
     # образ, из которого должен быть запущен контейнер
-    image: postgres:13.4-alpine
+    image: postgres:13.0-alpine
     # volume и связанная с ним директория в контейнере
     volumes:
       - /var/lib/postgresql/data/
