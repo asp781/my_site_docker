@@ -1,0 +1,34 @@
+
+{% extends 'works/base.html' %}
+
+{% block content %}
+<tr>
+	<td align="left" width="163" height="39">Ваше имя: *</td>
+	<td width="346" height="39"><input type="text" name="name" value="" size=40 maxlenght=40></td>
+</tr>
+
+<tr>
+	<td align="left" width="163" valign="top" rowspan="2">Выберите способ связи и введите телефон или адрес электронной почты *</td>
+	<td width="346">
+		<select size="1" name="svas">
+		<option>Электронная почта</option>
+		<option>Телефон</option>
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td width="346" height="38"><input name="tlf" size=40 maxlenght=40 style="float: left"></td>
+</tr>
+
+<tr>
+	<td align="left" valign="top" width="163">Текст Вашего письма: *</td>
+	<td width="346"><textarea name="contt" cols="32" rows="12"></textarea></td>
+</tr>
+
+<tr>
+	<td align="center" width="163">&nbsp;</td>
+	<td align="center" width="346"><input type=submit value=" отправить " style="font-family: Bookman Old Style; font-size: 12pt; float:left"><INPUT TYPE=reset VALUE=" очистить поля " style="font-family: Bookman Old Style; font-size: 12pt; float:left"></td>
+</tr>
+
+{% endblock %}
