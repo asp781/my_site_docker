@@ -58,6 +58,6 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v5
         with:
-          context: ekranstroy/
+          context: .
           push: true
           tags: asp781/my_site:latest
