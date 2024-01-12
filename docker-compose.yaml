@@ -15,7 +15,7 @@ services:
       - ./.env
   web:
     # build: .
-    image: asp781:my_site:latest
+    image: asp781/my_site:latest
     restart: always
     volumes:
       # Контейнер web будет работать с данными, хранящиеся в томе static_value,
