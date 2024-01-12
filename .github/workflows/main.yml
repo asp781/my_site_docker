@@ -90,6 +90,7 @@ jobs:
 
 # sudo systemctl stop nginx
 # sudo apt install docker.io
+# Другой вариант установки docker-compose см. ниже
 # sudo apt install docker-compose
 # копировать на сервер в home/asp78:
 # - docker-compose.yaml
