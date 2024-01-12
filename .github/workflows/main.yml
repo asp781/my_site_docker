@@ -75,10 +75,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            sudo systemctl stop nginx
             sudo docker-compose stop
             sudo docker-compose rm web
-            # sudo docker image rm asp781/my_site:latest
-            # sudo docker-compose pull
+            sudo docker image rm asp781/my_site:latest
+            sudo docker-compose pull
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
@@ -92,7 +93,7 @@ jobs:
 # sudo apt install docker.io
 # Другой вариант установки docker-compose см. ниже
 # sudo apt install docker-compose
-# копировать на сервер в home/asp78:
+# копировать на сервер в home/asp78: (далее редактируем их на сервере)
 # - docker-compose.yaml
 # - nginx/default.conf
 
