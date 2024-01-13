@@ -43,7 +43,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.ekranstroy.ru',
     ]
 
-# Application definition
+# Application definition1
 
 INSTALLED_APPS = [
     'account',
