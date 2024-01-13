@@ -113,6 +113,3 @@ volumes:
 # Key is saved at:         /etc/letsencrypt/live/ekranstroy.ru/privkey.pem
 # This certificate expires on 2024-04-12
 # Инструкции см. на странице https://certbot.org/renewal-setup.
-
-# sudo docker-compose ps
-# sudo docker-compose restart nginx
