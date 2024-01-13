@@ -60,7 +60,7 @@ jobs:
         # Пуш образа в Docker Hub
         uses: docker/build-push-action@v5
         with:
-          # Путь до Dockerfile
+          # Путь до Dockerfile (если не в корне)
           # context: .
           push: true
           tags: asp781/my_site:latest
@@ -71,7 +71,6 @@ jobs:
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
-        # строка 72
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
