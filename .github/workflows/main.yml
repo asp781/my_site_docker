@@ -82,7 +82,7 @@ jobs:
             # останавливаем все сервисы (НЕ удаляет ни контейнеры, ни связанные с ними внутренние тома)
             sudo docker-compose stop
             sudo docker-compose rm web
-            sudo docker image rm asp781/my_site:latest
+            # sudo docker image rm asp781/my_site:latest
             # загружаем последние версии образов для сервисов, описанных в файле docker-compose. yml
             sudo docker-compose pull
             rm .env
