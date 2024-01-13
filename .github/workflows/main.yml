@@ -103,6 +103,9 @@ jobs:
 # Копирование локального файла в удаленную систему: (делается с локальной машины из папки с файлом)
 # scp docker-compose.yaml asp78@158.160.40.222: # копирует в корень
 # scp nginx/default.conf asp78@158.160.40.222:nginx # копирует в папку nginx
+# scp nginx/settings.py asp78@158.160.40.222:my_site/ekranstroy/ekranstroy
+
+
 
 # Docker Compose в Ubuntu 20.04:
 # sudo apt-get remove docker-compose
