@@ -8,7 +8,7 @@ services:
     # образ, из которого должен быть запущен контейнер
     image: postgres:13.4-alpine
     # volume и связанная с ним директория в контейнере
-    container_name: db
+    # container_name: db
     volumes:
       - /var/lib/postgresql/data/
     # адрес файла, где хранятся переменные окружения
@@ -17,7 +17,7 @@ services:
   web:
     # build: .
     image: asp781/my_site:latest
-    container_name: web
+    # container_name: web
     restart: always
     volumes:
       # Контейнер web будет работать с данными, хранящиеся в томе static_value,
@@ -35,7 +35,7 @@ services:
   nginx:
     # образ, из которого должен быть запущен контейнер
     image: nginx:1.21.3-alpine
-    container_name: nginx
+    # container_name: nginx
     # запросы с внешнего порта 80 перенаправляем на внутренний порт 80
     ports:
       - "80:80"
