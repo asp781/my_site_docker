@@ -6,8 +6,9 @@ services:
   # описание контейнера db
   db:
     # образ, из которого должен быть запущен контейнер
-    image: postgres:13.0-alpine
+    image: postgres:13.4-alpine
     # volume и связанная с ним директория в контейнере
+    container_name: db
     volumes:
       - /var/lib/postgresql/data/
     # адрес файла, где хранятся переменные окружения
@@ -16,6 +17,7 @@ services:
   web:
     # build: .
     image: asp781/my_site:latest
+    container_name: web
     restart: always
     volumes:
       # Контейнер web будет работать с данными, хранящиеся в томе static_value,
@@ -33,10 +35,11 @@ services:
   nginx:
     # образ, из которого должен быть запущен контейнер
     image: nginx:1.21.3-alpine
-
+    container_name: nginx
     # запросы с внешнего порта 80 перенаправляем на внутренний порт 80
     ports:
       - "80:80"
+      - "443:443"
 
     volumes:
       # При сборке скопировать созданный конфиг nginx из исходной директории
@@ -55,10 +58,23 @@ services:
       # Контейнер nginx должен быть запущен после контейнера web
       - web
 
+  certbot:
+    image: certbot/certbot
+    depends_on:
+      - nginx
+    container_name: certbot
+    volumes:
+      - ect-letsencrypt:/ect/letsencrypt
+      - www-html:/var/www/html
+    command: certonly --webroot --webroot-path=/var/www/html --email asp78@yandex.ru --agree-tos --no-eff-email --stading -d ekranstroy.ru
+
 volumes:
   # Новые тома
   static_value:
   media_value:
+  ect-letsencrypt:
+  www-html:
+
 
 # docker-compose up
 # docker-compose stop
