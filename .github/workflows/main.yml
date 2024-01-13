@@ -69,7 +69,7 @@ jobs:
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
-        # строка 72
+        # строка 73
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
