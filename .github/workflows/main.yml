@@ -107,6 +107,7 @@ jobs:
 # scp docker-compose.yaml asp78@158.160.40.222: # копирует в корень
 # scp nginx/default.conf asp78@158.160.40.222:nginx # копирует в папку nginx
 # scp nginx/settings.py asp78@158.160.40.222:my_site/ekranstroy/ekranstroy
+# scp Dockerfile asp78@158.160.40.222: # копирует в корень
 
 
 
