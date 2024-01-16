@@ -63,7 +63,7 @@ jobs:
           # Путь до Dockerfile (если не в корне)
           # context: .
           push: true
-          tags: asp781/my_site:latest
+          tags: asp781/ek:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -82,7 +82,7 @@ jobs:
             # останавливаем все сервисы (НЕ удаляет ни контейнеры, ни связанные с ними внутренние тома)
             sudo docker-compose stop
             sudo docker-compose rm web
-            sudo docker image rm asp781/my_site
+            sudo docker image rm asp781/ek
             # загружаем последние версии образов для сервисов, описанных в файле docker-compose. yml
             sudo docker-compose pull
             rm .env
@@ -94,3 +94,4 @@ jobs:
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             sudo docker-compose up -d
+            #
