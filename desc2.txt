@@ -1,0 +1,74 @@
+# sudo docker-compose up
+# sudo docker-compose stop
+# sudo docker-compose up -d --build
+
+# sudo docker-compose exec web python manage.py migrate
+# sudo docker-compose exec web python manage.py createsuperuser
+# sudo docker-compose exec web python manage.py collectstatic --no-input
+# sudo docker-compose exec web python manage.py dumpdata > fixtures.json
+# sudo docker-compose exec web python manage.py loaddata fixtures.json
+
+
+# ssh asp78@158.160.40.222
+# http://ekranstroy.ru/
+# sudo docker exec -it nginx ls etc/letsencrypt/live/ekranstroy.ru/
+# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/cert.pem
+# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/chain.pem
+# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/fullchain.pem
+# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/privkey.pem
+
+# sudo docker exec -it nginx ls etc/letsencrypt
+# sudo docker exec -it web bash
+# sudo docker exec -it db bash
+
+# /var/log/letsencrypt/letsencrypt.log
+# http://ekranstroy.ru/.well-known/acme-challenge/4waXri8tZgvS8lffMJhHg2JdPZNbEnxUPM6kS
+# Certificate is saved at: /etc/letsencrypt/live/ekranstroy.ru/fullchain.pem
+# Key is saved at:         /etc/letsencrypt/live/ekranstroy.ru/privkey.pem
+# This certificate expires on 2024-04-12
+# Инструкции см. на странице https://certbot.org/renewal-setup.
+
+# sudo docker-compose ps
+# sudo docker-compose restart nginx
+
+
+
+# docker build -t ekranstroy .
+# docker run --name my_site -it -p 8000:8000 ekranstroy
+
+# docker exec -it my_site_docker-web-1 bash
+
+# docker build -t asp781/ekranstroy:v10.01.2024 .
+# docker login -u asp781
+# docker push asp781/ekranstroy:v10.01.2024
+
+# docker build -t asp781/ek:latest .
+# docker login -u asp781
+# docker push asp781/ek:latest
+
+
+# sudo systemctl stop nginx
+# sudo apt install docker.io
+# Другой вариант установки docker-compose см. ниже
+# sudo apt install docker-compose
+# копировать на сервер в home/asp78: (далее редактируем их на сервере)
+# - docker-compose.yaml
+# - nginx/default.conf
+
+# Копирование локального файла в удаленную систему: (делается с локальной машины из папки с файлом)
+# scp docker-compose.yaml asp78@158.160.40.222: # копирует в корень
+# scp nginx/default.conf asp78@158.160.40.222:nginx # копирует в папку nginx
+# scp nginx/settings.py asp78@158.160.40.222:my_site/ekranstroy/ekranstroy
+# scp Dockerfile asp78@158.160.40.222: # копирует в корень
+
+
+
+# Docker Compose в Ubuntu 20.04:
+# sudo apt-get remove docker-compose
+# sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+# sudo chmod +x /usr/local/bin/docker-compose
+# docker-compose --version
+
+# Saving debug log to /var/log/letsencrypt/letsencrypt.log
+#

@@ -9,6 +9,7 @@ services:
     image: postgres:13.4-alpine
     # volume и связанная с ним директория в контейнере
     container_name: db
+    restart: always
     volumes:
       - /var/lib/postgresql/data/
     # адрес файла, где хранятся переменные окружения
@@ -16,7 +17,7 @@ services:
       - ./.env
   web:
     # build: .
-    image: asp781/my_site:latest
+    image: asp781/ek:latest
     container_name: web
     restart: always
     volumes:
@@ -41,6 +42,7 @@ services:
     # образ, из которого должен быть запущен контейнер
     image: nginx:1.21.3-alpine
     container_name: nginx
+    restart: always
     # запросы с внешнего порта 80 перенаправляем на внутренний порт 80
     ports:
       - "80:80"
@@ -72,6 +74,7 @@ services:
     depends_on:
       - nginx
     container_name: certbot
+    restart: always
     volumes:
       - etc-letsencrypt:/etc/letsencrypt
       - html:/var/html/
@@ -84,36 +87,3 @@ volumes:
   etc-letsencrypt:
   # директория с файлами сайта для cerbot
   html:
-
-
-# sudo docker-compose up
-# sudo docker-compose stop
-# sudo docker-compose up -d --build
-
-# sudo docker-compose exec web python manage.py migrate
-# sudo docker-compose exec web python manage.py createsuperuser
-# sudo docker-compose exec web python manage.py collectstatic --no-input
-# sudo docker-compose exec web python manage.py dumpdata > fixtures.json
-
-# ssh asp78@158.160.40.222
-# http://ekranstroy.ru/
-# sudo docker exec -it nginx ls etc/letsencrypt/live/ekranstroy.ru/
-# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/cert.pem
-# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/chain.pem
-# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/fullchain.pem
-# sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/privkey.pem
-
-# sudo docker exec -it nginx ls etc/letsencrypt
-# sudo docker exec -it web bash
-# sudo docker exec -it db bash
-
-# /var/log/letsencrypt/letsencrypt.log
-# http://ekranstroy.ru/.well-known/acme-challenge/4waXri8tZgvS8lffMJhHg2JdPZNbEnxUPM6kS
-# Certificate is saved at: /etc/letsencrypt/live/ekranstroy.ru/fullchain.pem
-# Key is saved at:         /etc/letsencrypt/live/ekranstroy.ru/privkey.pem
-# This certificate expires on 2024-04-12
-# Инструкции см. на странице https://certbot.org/renewal-setup.
-
-# sudo docker-compose ps
-# sudo docker-compose restart nginx
-#

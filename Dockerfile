@@ -24,12 +24,3 @@ WORKDIR /app
 # Выполнить запуск сервера разработки при старте контейнера.
 # CMD ["python3", "manage.py", "runserver", "0:8000"]
 CMD ["gunicorn", "ekranstroy.wsgi:application", "--bind", "0:8000" ]
-
-# docker build -t ekranstroy .
-# docker run --name my_site -it -p 8000:8000 ekranstroy
-
-# docker exec -it my_site_docker-web-1 bash
-
-# docker build -t asp781/ekranstroy:v10.01.2024 .
-# docker login -u asp781
-# docker push asp781/ekranstroy:v10.01.2024
