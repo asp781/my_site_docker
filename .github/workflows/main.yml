@@ -63,7 +63,7 @@ jobs:
           # Путь до Dockerfile (если не в корне)
           # context: .
           push: true
-          tags: asp781/ek:latest
+          tags: asp781/ekranstroy:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -81,7 +81,7 @@ jobs:
             # sudo docker rm web
             # sudo docker image rm asp781/ek:latest
             sudo docker system prune -a --volumes
-            sudo docker pull asp781/ek
+            sudo docker pull asp781/ekranstroy
             sudo docker-compose up -d --build
             # sudo docker volume prune -a
-            # sudo docker run asp781/ek:latest
+            # sudo docker run asp781/ek:latest -d
