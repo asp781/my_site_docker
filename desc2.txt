@@ -38,9 +38,9 @@
 
 # docker exec -it my_site_docker-web-1 bash
 
-# docker build -t asp781/ekranstroy:v10.01.2024 .
+# docker build -t asp781/ekranstroy:latest .
 # docker login -u asp781
-# docker push asp781/ekranstroy:v10.01.2024
+# docker push asp781/ekranstroy:latest
 
 # docker build -t asp781/ek:latest .
 # docker login -u asp781

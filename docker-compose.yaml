@@ -17,7 +17,7 @@ services:
       - ./.env
   web:
     # build: .
-    image: asp781/ek:latest
+    image: asp781/ekranstroy:latest
     container_name: web
     restart: always
     volumes:
