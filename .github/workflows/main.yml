@@ -82,7 +82,7 @@ jobs:
             sudo docker rm web
             sudo docker image rm asp781/ekranstroy:latest
             sudo docker pull asp781/ekranstroy
-            sudo docker run -d asp781/ekranstroy
+            sudo docker run -d -p 8000:8000 --name web --restart always asp781/ekranstroy
 
             # sudo docker-compose up -d
 
