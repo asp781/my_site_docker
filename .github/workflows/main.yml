@@ -79,7 +79,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker stop web && sudo docker rm web && sudo docker image rm asp781/ekranstroy:latest
-            sudo docker volume prune -a
+            sudo docker volume rm html media_value static_value
             sudo docker stop nginx && sudo docker stop certbot
 
             sudo docker run -d \
@@ -89,11 +89,12 @@ jobs:
              -v static_value:/app/static/ \
              -v media_value:/app/media/ \
              -v html:/app/ \
-             asp781/ekranstroy # 22-01-24
+             asp781/ekranstroy
 
             sudo docker start nginx && sudo docker start certbot
 
 
+            # sudo docker volume prune -a
 
             # sudo docker pull asp781/ekranstroy
             # sudo docker-compose up -d

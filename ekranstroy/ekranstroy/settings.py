@@ -173,4 +173,5 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# 22-01-24 3:51 new
+# 22-01-24 3:51 new2
+# docker build -t asp781/ekranstroy:latest .
