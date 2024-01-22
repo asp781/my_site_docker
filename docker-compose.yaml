@@ -74,7 +74,7 @@ services:
     depends_on:
       - nginx
     container_name: certbot
-    # restart: always
+    restart: always
     volumes:
       - etc-letsencrypt:/etc/letsencrypt
       - html:/var/html/
