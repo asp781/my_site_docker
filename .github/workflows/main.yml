@@ -97,10 +97,11 @@ jobs:
 
 
             sudo docker stop web && sudo docker rm web && sudo docker image rm asp781/ekranstroy:latest
+            sudo docker stop db nginx certbot
+            sudo docker rm certbot nginx
             # sudo docker volume rm asp78_html asp78_media_value asp78_static_value
             sudo docker volume rm asp78_html
             sudo docker-compose up -d
-
 
 
 
