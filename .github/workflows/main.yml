@@ -110,26 +110,4 @@ jobs:
             sudo docker-compose up -d
 
 
-
             # sudo docker volume prune -a
-
-            # sudo docker pull asp781/ekranstroy
-
-            # sudo docker stop web
-            # sudo docker rm web
-
-            # sudo docker stop web && sudo docker rm web
-            # sudo docker image prune -a
-            # sudo docker pull asp781/ekranstroy
-
-            # sudo docker-compose up -d # 17-01-24 2:24
-
-
-            # sudo docker-compose up --force-recreate
-            # sudo docker-compose up --build --force-recreate
-            # sudo docker-compose up --build -V, --renew-anon-volumes
-            # sudo docker-compose build --no-cache
-            # sudo docker-compose build --no-cache web
-            # sudo docker-compose build --pull
-
-            # sudo docker system prune -a --volumes
