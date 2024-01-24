@@ -42,16 +42,11 @@
 
 				<tr>
 					<td align="right">
-
 						{% if user.is_authenticated %}
-						ВЫ ВОШЛИ КАК: <a href="{% url "login" %}" class="btn btn-warning">{{user}}</a>
-						<a href="{% url "mailto" %}" class="btn btn-warning">ОБРАТНАЯ СВЯЗЬ</a>
-						{% if user.is_superuser %}
-						<a href="admin/" class="btn btn-warning">Админка</a>
-						{% endif %}
+							ВЫ ВОШЛИ КАК: <a href="{% url "login" %}" class="btn btn-warning">{{user}}</a>
+							<a href="{% url "mailto" %}" class="btn btn-warning">ОБРАТНАЯ СВЯЗЬ</a>
 						{% else %}
-						<a href="{% url "login" %}" class="btn btn-warning">ВОЙТИ</a>
-						<a href="{% url "register" %}" class="btn btn-warning">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+							<a href="{% url "login" %}" class="btn btn-warning">ВОЙТИ</a>
 						{% endif %}
 					</td>
 				</tr>
