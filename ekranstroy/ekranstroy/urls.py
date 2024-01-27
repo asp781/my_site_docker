@@ -23,6 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('works.urls')),
+    path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
 ]
 

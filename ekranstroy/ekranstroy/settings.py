@@ -173,6 +173,26 @@ LOGOUT_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# 23-01-24 3:41
-# docker build -t asp781/ekranstroy:latest .
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Конфигурация сервера электронной почты
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'asp78@yandex.ru'
+EMAIL_HOST_PASSWORD = 'qbdrxnybkkvfxylr'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
+
+# python manage.py shell
+# from django.core.mail import send_mail
+# send_mail(
+#     'Django mail',
+#     'This e-mail was sent with Django.',
+#     'asp78@yandex.ru',
+#     ['vsp44@yandex.ru'],
+#     fail_silently=False,
+#     )

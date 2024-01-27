@@ -45,9 +45,9 @@
 
 						{% if user.is_authenticated %}
 						ВЫ ВОШЛИ КАК: <a href="{% url "login" %}" class="btn btn-warning">{{user}}</a>
-						<a href="{% url "mailto" %}" class="btn btn-warning">ОБРАТНАЯ СВЯЗЬ</a>
 						<a href="{% url "logout" %}" class="btn btn-warning">ВЫЙТИ</a>
 						{% if user.is_superuser %}
+						<a href="{% url "blog:post_list" %}" class="btn btn-warning">БЛОГ</a>
 						<a href="admin/" class="btn btn-warning">Админка</a>
 						{% endif %}
 						{% else %}
