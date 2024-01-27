@@ -207,3 +207,5 @@ EMAIL_ADMIN = EMAIL_HOST_USER
 #     ['vsp44@yandex.ru'],
 #     fail_silently=False,
 #     )
+
+# 27-01-24
