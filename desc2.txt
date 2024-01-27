@@ -2,6 +2,7 @@
 # sudo docker-compose stop
 # sudo docker-compose up -d --build
 
+# sudo docker-compose exec web python manage.py makemigrations
 # sudo docker-compose exec web python manage.py migrate
 # sudo docker-compose exec web python manage.py createsuperuser
 # sudo docker-compose exec web python manage.py collectstatic --no-input
@@ -11,7 +12,6 @@
 
 # ssh asp78@158.160.40.222
 # http://ekranstroy.ru/
-# sudo docker exec -it nginx ls etc/letsencrypt/live/ekranstroy.ru/
 # sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/cert.pem
 # sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/chain.pem
 # sudo docker exec -it nginx cat etc/letsencrypt/live/ekranstroy.ru/fullchain.pem
