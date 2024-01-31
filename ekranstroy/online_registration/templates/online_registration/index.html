@@ -1,0 +1,69 @@
+{% extends "online_registration/base.html" %}
+{% load static %}
+{% block index %}
+
+
+<section>
+    <div class="container class_form">
+        <h1 class="text-3">Оставь заявку</h1>
+        <h3>{{ step }}</h3>
+
+        <div class="row justify-content-center">
+
+            {% if step_1 %}
+            <form action="{% url 'online_registration:main_page' %}" method="GET" style="width 50%;">
+
+                <label for="start">Выберете дату:</label>
+                <input type="date" id="start" name="date" value={{min_day_value}} min={{min_day_value}} max="2025-01-01">
+
+
+
+                <div style="float: right;" class="form-group row">
+                    <button type="submit" class="btn btn-success">ДАЛЕЕ</button>
+                </div>
+            </form>
+            {% endif %}
+
+            {% if step_2 %}
+            <form action="{% url 'online_registration:thanks_page' %}" method="POST" style="width 50%;">
+                {% csrf_token %}
+
+                <label for="start">{{choised_day}}</label>
+                <label for="start">Выберете доступное время:</label>
+                <select name="time" id="select" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    {% for time in all_time %}
+                    <option value="{{time}}">{{time}}</option>
+                    {% endfor %}
+                </select>
+
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Имя</label><br>
+                    <input type="text" value="" name="name" class="form-control">
+                    <div class="">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Телефон</label><br>
+                    <input type="text" value="" name="phone" class="form-control">
+                    <div class="">
+                </div>
+
+                <input type="hidden" name="date" value="{{choised_day}}">
+
+                <div style="float: left;" class="form-group row">
+                    <a href="{% url 'online_registration:main_page' %}" type="submit" class="btn btn-danger">Выбрать другую дату</a>
+                </div>
+
+                <div style="float: right;" class="form-group row">
+                    <button type="submit" class="btn btn-success">ОСТАВИТЬ ЗАЯВКУ</button>
+                </div>
+
+            </form>
+            {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

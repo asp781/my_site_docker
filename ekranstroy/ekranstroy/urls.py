@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('works.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
+    path('online_registration/', include('online_registration.urls', namespace='online_registration')),
 ]
 
 if settings.DEBUG:

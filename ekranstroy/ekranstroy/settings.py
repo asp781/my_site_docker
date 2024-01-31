@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'works',
     'blog.apps.BlogConfig',
+    'online_registration',
 ]
 
 MIDDLEWARE = [
@@ -198,4 +199,4 @@ EMAIL_ADMIN = EMAIL_HOST_USER
 #     fail_silently=False,
 #     )
 
-# 27-01-24
+# 27-01-241
