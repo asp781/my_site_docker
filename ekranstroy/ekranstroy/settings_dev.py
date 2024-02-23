@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'bootstrap5',
     'works',
     'blog.apps.BlogConfig',
+    'online_registration',
+    'price',
+
 ]
 
 MIDDLEWARE = [

@@ -26,6 +26,7 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
     path('online_registration/', include('online_registration.urls', namespace='online_registration')),
+    path('price/', include('price.urls')),
 ]
 
 if settings.DEBUG:
