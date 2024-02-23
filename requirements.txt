@@ -12,3 +12,4 @@ pytest
 pytest-django
 pytest-pythonpath
 pytz
+django-taggit==3.0.0
