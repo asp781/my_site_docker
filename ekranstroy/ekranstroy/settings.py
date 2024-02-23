@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'works',
     'blog.apps.BlogConfig',
     'online_registration',
-    # 'taggit',
+    'taggit',
     'price',
 ]
 
