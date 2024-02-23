@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="shortcut icon" href="{% static "images/0000.ico" %}">
+
+	<title>строительство домов, стоимость строительства, технологии строительства</title>
+	<meta name="keywords" content="строительство домов, стоимость строительства, технологии строительства">
+	<meta name="description" content="Экранстрой. Строительство домов из кирпича и стеновых блоков, земляные и бетонные работы, монтаж кровли и ограждений, отделка под ключ, коммуникации.">
+
+	{% comment %} {% load bootstrap5 %}
+	{% bootstrap_css %}
+	{% bootstrap_javascript %} {% endcomment %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+
+<style>
+	td{font-family:Tahoma;font-size:11px;color:#000000;}
+	{% comment %} a{color:#388C3C} {% endcomment %}
+	{% comment %} .cap{font-weight:bold;color:#000000;padding-top:10px;} {% endcomment %}
+	{% comment %} .left{color:#ffffff;padding-right:5px;}
+	.mid{color:#000000;padding-right:30px;padding-top:15px;}
+	.mid2{color:#000000;padding-right:10px;padding-left:15px;} {% endcomment %}
+	.menu{text-decoration:none;color:#000000;}
+	body p {
+		font-size: 14px;
+	}
+</style>
+
+
+
+	</head>
+
+<body>
+<table>
+	<tr>
+		<td rowspan="4" width="50%"></td>
+		<td colspan="2">
+			<table cellpadding="0" cellspacing="0" border="0">
+
+				<tr>
+					<td align="right">
+
+						{% if user.is_authenticated %}
+						ВЫ ВОШЛИ КАК: <a href="{% url "login" %}" class="btn btn-warning">{{user}}</a>
+						<a href="{% url "logout" %}" class="btn btn-warning">ВЫЙТИ</a>
+						{% if user.is_superuser %}
+						<a href="{% url "blog:post_list" %}" class="btn btn-warning">БЛОГ</a>
+						<a href="{% url "online_registration:main_page" %}" class="btn btn-warning">ЗАЯВКА</a>
+						<a href="admin/" class="btn btn-warning">Админка</a>
+						{% endif %}
+						{% else %}
+						<a href="{% url "login" %}" class="btn btn-warning">ВОЙТИ</a>
+						<a href="{% url "register" %}" class="btn btn-warning">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+						{% endif %}
+					</td>
+				</tr>
+
+				<tr>
+					<td><img src="{% static "images/name.jpg" %}"></td>
+				</tr>
+
+				<tr>
+					<td>
+						<a href="{% url "index" %}" class="btn btn-warning">ГЛАВНАЯ</a>
+						<a href="{% url "o_nas" %}" class="btn btn-warning">О НАС</a>
+						<a href="{% url "uslugi" %}" class="btn btn-warning">УСЛУГИ</a>
+						<a href="{% url "price" %}" class="btn btn-warning">ЦЕНЫ</a>
+						<a href="{% url "technologi" %}" class="btn btn-warning">ТЕХНОЛОГИИ</a>
+						<a href="{% url "nasi_raboti" %}" class="btn btn-warning">НАШИ РАБОТЫ</a>
+						<a href="{% url "contacts" %}" class="btn btn-warning">КОНТАКТЫ</a>
+					</td>
+				</tr>
+
+
+			</table>
+		</td>
+		<td width="50%"></td>
+	</tr>
+
+	<tr>
+		<td valign="top" width="240" >
+			<table cellpadding="0" cellspacing="0" border="0" height="100%">
+
+				<tr>
+					<td height="151" valign="top">
+						<a href="{% url 'gostinica' %}"><img src="{% static "images/gostinica_logo.jpg" %}" hspace="0" vspace="10" align="left"></a>
+						<strong class="cap">_________<u>ГОСТИНИЦА</u>________</strong>
+					</td>
+				</tr>
+
+				<tr>
+					<td height="151" valign="top">
+						<a href="{% url 'dom' %}"><img src="{% static "images/dom_logo.jpg" %}" hspace="0" vspace="10" align="left"></a>
+						<strong class="cap">____________<u>ДОМ</u>____________</strong>
+					</td>
+				</tr>
+
+				<tr>
+					<td height="151" valign="top">
+						<a href="{% url 'otdelka' %}"><img src="{% static "images/otdelka_logo.jpg" %}" hspace="0" vspace="10" align="left"></a>
+						<strong class="cap">_____<u>ВНУТРЕННЯЯ ОТДЕЛКА_____</u></strong>
+					</td>
+				</tr>
+
+				<tr>
+					<td height="151" valign="top">
+						<a href="{% url 'avtoservis' %}"><img src="{% static "images/avtoserv_logo.jpg" %}" hspace="0" vspace="10" align="left"></a>
+						<strong class="cap">_________<u>АВТОСЕРВИС</u>_________</strong>
+
+					</div>
+					</td>
+				</tr>
+
+			</table>
+		</td>
+
+		<td valign="top" height="100%">
+			<table cellpadding="0" cellspacing="0" border="0" height="100%">
+				<tr>
+					<td colspan="2" width="555" height="100%" valign="top">
+						<table cellspacing="0" border="0">
+							<tr>
+								{% block content %}
+								{% endblock %}
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" width="780" height="28" background="{% static "images/bgmenu.gif" %}" align="center" class="menu">
+			<a href="{% url 'index' %}" class="menu">ГЛАВНАЯ</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			<a href="{% url 'o_nas' %}" class="menu">О НАС</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			<a href="{% url 'uslugi' %}" class="menu">УСЛУГИ</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			<a href="{% url 'etapy' %}" class="menu">ЭТАПЫ</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			<a href="{% url 'technologi' %}" class="menu">ТЕХНОЛОГИИ</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			<a href="{% url 'contacts' %}" class="menu">КОНТАКТЫ</a>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="2" width="780" height="52" background="{% static "images/footer.gif" %}" align="center">
+			«ЭкранСтрой» © 2013   •
+			<a href="" class="menu">Все права защищены</a>
+			•
+			<a href="" class="menu">Разработано Студия Рекламы «Идея»</a>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
