@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Order
 from datetime import datetime
-from django.core.mail import send_mail
 
 
 
@@ -28,7 +27,6 @@ def first_page(request):
                     'choised_day': request.GET.get('date')}
         return render(request, 'online_registration/index.html', dict_obj)
 
-sent = False
 
 def thanks_page(request):
     if request.POST:
@@ -38,14 +36,7 @@ def thanks_page(request):
         time = request.POST['time']
         element = Order(order_name=name, order_phone=phone, order_day=day, order_time=time )
         element.save()
-        subject = 'У вас новая заявка'
-        message = f'{name}\n{phone}\n{day}\n{time}\n'
-        send_mail(subject, message, 'asp78@yandex.ru', ['asp78@yandex.ru'], fail_silently=False)
-        sent = True
-        return render(request, 'online_registration/thanks.html', {
-            'name': name,
-            'sent': sent,
-            })
+        return render(request, 'online_registration/thanks.html', {'name': name})
     else:
         return render(request, 'online_registration/thanks.html')
 
