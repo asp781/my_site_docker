@@ -84,6 +84,11 @@ def post_share(request, post_id):
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = f"{cd['name']} рекомендует вам прочитать " f"{post.title}"
             message = f"{post.title} {post_url}\n\n" f"{cd['name']} Комментарий: {cd['comments']}"
+            name_local = '127.0.0.1:8000'
+            name_container = 'web:8000'
+            name_site = 'ekranstroy.ru'
+            message = message.replace(name_local, name_site)
+            message = message.replace(name_container, name_site)
             send_mail(subject, message, 'asp78@yandex.ru', [cd['to']], fail_silently=False)
             sent = True
     else:
