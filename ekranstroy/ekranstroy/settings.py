@@ -49,6 +49,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 INSTALLED_APPS = [
     'account',
+    'social_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -195,14 +196,10 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
 
-# python manage.py shell
-# from django.core.mail import send_mail
-# send_mail(
-#     'Django mail',
-#     'This e-mail was sent with Django.',
-#     'asp78@yandex.ru',
-#     ['vsp44@yandex.ru'],
-#     fail_silently=False,
-#     )
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.google.GoogleOAuth2',
+]
 
-# 24-02-24
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '558018228842-03v6e0e60ilm3pfmcjjeoq35443mgt4u.apps.googleusercontent.com' # ИД клиента Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Секрет клиента Google

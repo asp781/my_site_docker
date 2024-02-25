@@ -1,0 +1,15 @@
+asgiref==3.7.2
+beautifulsoup4==4.12.2
+Django
+django-bootstrap-v5==1.0.11
+soupsieve==2.5
+sqlparse==0.4.4
+tzdata==2023.3
+gunicorn
+psycopg2-binary
+requests
+pytest
+pytest-django
+pytest-pythonpath
+pytz
+django-taggit==3.0.0
