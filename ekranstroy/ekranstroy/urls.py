@@ -7,6 +7,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('works.urls')),
+    path('', include('likes.urls', namespace='likes')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
