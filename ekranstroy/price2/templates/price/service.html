@@ -1,0 +1,18 @@
+{% extends 'price/base.html' %}
+
+{% block content %}
+    <h1>{{service.title}}</h1>
+
+    {% if service.photo %}
+        <p><img class="img-article-left" src="{{service.photo.url}}"></p>
+    {% endif %}
+
+    {{service.content|linebreaks}}
+    Цена: {{service.price}} руб / {{service.unit}}
+
+    <hr>
+    {% if service.hint %}
+        Подсказка: {{service.hint}}
+    {% endif %}
+
+{% endblock %}

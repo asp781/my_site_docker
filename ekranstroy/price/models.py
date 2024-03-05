@@ -18,6 +18,7 @@ class Service(models.Model):
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Время изменения")
     is_published = models.BooleanField(default=True, verbose_name="Публикация")
+    is_favorited = models.BooleanField(null=True)
 
     def __str__(self):
         return self.title[:20]
@@ -47,3 +48,26 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['id']
+
+
+from django.contrib.auth.models import User
+
+class Favorite(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name='Пользователь'
+    )
+    service = models.ForeignKey(
+        Service, on_delete=models.CASCADE, related_name='favorites',
+        verbose_name='Услуга'
+    )
+    created = models.DateTimeField('дата публикации', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Избранное'
+        verbose_name_plural = 'Избранное'
+        ordering = ('-created',)
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'service'], name='user_service'
+            )
+        ]

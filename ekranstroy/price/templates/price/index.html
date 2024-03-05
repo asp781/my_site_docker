@@ -1,21 +1,37 @@
 {% extends 'price/base.html' %}
 
 {% block content %}
+<div class="container">
+	<div class="row" align="center">
+		<div class="col">
+			<a href="{% url "index" %}" class="btn btn-warning">ГЛАВНАЯ</a>
+			{% if user.is_authenticated %}
+				<a href="{% url "likes:my_likes" %}" class="btn btn-warning">ИЗБРАННОЕ</a>
+			{% endif %}
+		</div>
+	</div>
 	<ul class="list-articles">
-			{% for p in services %}
-				<li>
-					<div class="article-panel">
-						<p class="first">Категория: {{p.cat}}</p>
-						<p class="last">Цена: {{p.price}} руб / {{p.unit}}</p>
-					</div>
-
-					<h2>{{p.title}}</h2>
-					{% autoescape on %}
-						{{p.content|linebreaks|truncatewords:50}}
-					{% endautoescape %}
-					<div class="clear"></div>
-					<p class="link-read-post"><a href="{{ p.get_absolute_url }}">Подробно</a></p>
-				</li>
-			{% endfor %}
+		<div class="row">
+            <div class="col">
+                <ul class="list-group">
+					{% for p in services %}
+						<li class="list-group-item">
+							<p class="first">Категория: {{p.cat}}</p>
+							<h2>{{p.title}}</h2>
+							{% autoescape on %}
+								{{p.content|linebreaks|truncatewords:50}}
+							{% endautoescape %}
+							<p class="last">Цена: {{p.price}} руб / {{p.unit}}</p>
+							<div class="btn-group">
+								<p><a href="{{ p.get_absolute_url }}" class="btn btn-primary">Подробно</a></p>
+								<p style="margin: 0 5px;"></p>
+								<p> {% include 'likes/add_like_blog.html' with blog_post_id=p.id %} </p>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
 	</ul>
+</div>
 {% endblock %}

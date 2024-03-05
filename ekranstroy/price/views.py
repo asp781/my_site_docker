@@ -18,7 +18,7 @@ class PriceHome(DataMixin, ListView):
     model = Service
     template_name = 'price/index.html'
     context_object_name = 'services'
-    paginate_by = 60
+    paginate_by = 29
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
