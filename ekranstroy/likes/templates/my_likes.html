@@ -20,6 +20,7 @@
                     {% for service in servises %}
                         <li class="list-group-item">
                             <h5>{{ service.title }}</h5>
+                            <p class="last">Цена: {{service.price}} руб / {{p.unit}}</p>
                             <div class="btn-group">
                                 <p><a href="{{ service.get_absolute_url }}" class="btn btn-primary">Подробно</a></p>
                                 <p style="margin: 0 5px;"></p>
