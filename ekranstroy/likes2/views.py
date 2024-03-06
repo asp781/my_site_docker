@@ -4,8 +4,6 @@ from django.views.generic import View
 from django.contrib.auth.models import User
 from price.models import Service
 from .models import ServiceLikes
-from .pdf import make_pdf
-from django.http import HttpResponse
 
 class AddLikeView(View):
     def post(self, request, *args, **kwargs):
@@ -44,26 +42,7 @@ class RemoveLikeView(View):
 def my_likes(request):
     user_id = request.user.id
     id_servise_by_user = ServiceLikes.objects.filter(liked_by_id=user_id)
-    # list_id = [x.blog_post_id for x in id_servise_by_user]
-    list_id = id_servise_by_user.values('blog_post_id')
+    list_id = [x.blog_post_id for x in id_servise_by_user]
     servises = Service.objects.filter(pk__in=list_id)
     template_name = 'my_likes.html'
     return render(request, template_name, context={'servises': servises})
-
-from http import HTTPStatus
-
-def download(request):
-    user_id = request.user.id
-    id_servise_by_user = ServiceLikes.objects.filter(liked_by_id=user_id)
-    # list_id = [x.blog_post_id for x in id_servise_by_user]
-    list_id = id_servise_by_user.values('blog_post_id')
-    servises = Service.objects.filter(pk__in=list_id)
-    if not servises:
-        return HttpResponse('Список пуст')
-    servises_to_pdf = servises.values('title', 'price', 'unit')
-    return make_pdf(
-            ('Наименование', 'Цена', 'Ед.измерения'),
-            servises_to_pdf,
-            'list_of_services.pdf',
-            HTTPStatus.OK
-        )

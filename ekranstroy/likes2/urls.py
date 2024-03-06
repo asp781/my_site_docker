@@ -10,6 +10,5 @@ urlpatterns = [
         path('add/', AddLikeView.as_view(), name='add'),
         path('remove/', RemoveLikeView.as_view(), name='remove'),
         path('my_likes/', my_likes, name='my_likes'),
-        path('download/', download, name='download'),
     ])),
 ]

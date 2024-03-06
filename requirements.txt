@@ -42,4 +42,4 @@ sqlparse==0.4.4
 tzdata==2023.3
 urllib3==2.2.1
 Werkzeug==3.0.1
-
+fpdf==1.7.2
