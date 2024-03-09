@@ -13,7 +13,7 @@ def all_service(request):
     cats_id = cats.values('id')
     services = Service.objects.filter(is_published=True, cat__in=cats_id)
 
-    paginator = Paginator(services, 29)
+    paginator = Paginator(services, 8)
     page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
 
