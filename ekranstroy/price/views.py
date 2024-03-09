@@ -9,8 +9,9 @@ from .models import *
 def all_service(request):
     """Отображение всех категорий и всех услуг."""
     template_name = 'price/index.html'
-    services = Service.objects.filter(is_published=True)
     cats = Category.objects.filter(is_published=True)
+    cats_id = cats.values('id')
+    services = Service.objects.filter(is_published=True, cat__in=cats_id)
 
     paginator = Paginator(services, 29)
     page_number = request.GET.get('page', 1)
