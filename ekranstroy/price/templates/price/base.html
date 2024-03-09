@@ -14,28 +14,16 @@
 		<div class="row">
 			<div class="col-md-3">
 				<ul class="nav flex-column">
-					{% if cat_selected == 0 %}
-							<li class="nav-item">
-								<a class="nav-link active" href="#">Все категории</a>
-							</li>
-					{% else %}
-							<li class="nav-item">
-								<a class="nav-link" href="{% url 'price' %}">Все категории</a>
-							</li>
-					{% endif %}
+
+					{# Список категорий #}
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'price' %}">Все категории</a>
+					</li>
 
 					{% for c in cats %}
-					{% if c.service__count > 0 %}
-						{% if c.pk == cat_selected %}
-							<li class="nav-item">
-								<a class="nav-link active" href="#">{{c.name}}</a>
-							</li>
-						{% else %}
-							<li class="nav-item">
-								<a class="nav-link" href="{{ c.get_absolute_url }}">{{c.pk}}. {{c.name}}</a>
-							</li>
-						{% endif %}
-					{% endif %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ c.get_absolute_url }}">{{c.name}}</a>
+						</li>
 					{% endfor %}
 				</ul>
 			</div>
@@ -43,9 +31,11 @@
 			<div class="col-md-9">
 				<div class="content-text">
 
+					{# Контекст #}
 					{% block content %}
 					{% endblock %}
 
+					{# Пагинация #}
 					{% if page_obj.has_other_pages %}
 						<nav aria-label="Page navigation example">
 							<ul class="pagination">
@@ -77,6 +67,7 @@
 					{% endif %}
 				</div>
 			</div>
+
 		</div>
 	</div>
 </body>

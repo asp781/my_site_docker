@@ -4,7 +4,7 @@ from django.urls import path, re_path
 from .views import *
 
 urlpatterns = [
-    path('', PriceHome.as_view(), name='price'),
-    path('post/<int:post_id>/', ShowPost.as_view(), name='post'),
-    path('category/<slug:cat_slug>/', ServiceCategory.as_view(), name='category'),
+    path('', all_service, name='price'),
+    path('category/<slug:cat_slug>/', service_by_category, name='category'),
+    path('post/<int:post_id>/', service_detail, name='post'),
 ]
