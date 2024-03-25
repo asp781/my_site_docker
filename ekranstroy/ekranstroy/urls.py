@@ -13,6 +13,7 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('online_registration/', include('online_registration.urls', namespace='online_registration')),
     path('price/', include('price.urls')),
+    path('api/v1/', include('api.urls')),
 ]
 
 if settings.DEBUG:
