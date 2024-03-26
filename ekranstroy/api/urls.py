@@ -4,6 +4,8 @@ from .views import *
 
 urlpatterns = [
     path('cat/', cat_list, name='cat'),
+    path('order/', order_list, name='order'),
     ]
 
-# https://ekranstroy.ru/api/v1/cat
+# http://127.0.0.1:8000/api/v1/cat
+# http://127.0.0.1:8000/api/v1/order

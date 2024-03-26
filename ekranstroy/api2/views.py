@@ -2,10 +2,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-
 from price.models import Category
-from online_registration.models import Order
-from .serializers import *
+from .serializers import CategorySerializer
 
 @api_view(['GET'])
 def cat_list(request):
@@ -17,11 +15,4 @@ def cat_list(request):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     cats = Category.objects.all()[:10]
     serializer = CategorySerializer(cats, many=True)
-    return Response(serializer.data)
-
-
-@api_view(['GET'])
-def order_list(request):
-    cats = Order.objects.all()
-    serializer = OrderSerializer(cats, many=True)
     return Response(serializer.data)
