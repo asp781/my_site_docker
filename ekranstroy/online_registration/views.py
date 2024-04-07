@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Order
 from datetime import datetime
 from django.core.mail import send_mail
+from django.conf import settings
 
 
 
@@ -40,7 +41,7 @@ def thanks_page(request):
         element.save()
         subject = 'У вас новая заявка'
         message = f'{name}\n{phone}\n{day}\n{time}\n'
-        send_mail(subject, message, 'asp78@yandex.ru', ['asp78@yandex.ru'], fail_silently=False)
+        send_mail(subject, message, settings.EMAIL_HOST_USER, ['asp78@yandex.ru'], fail_silently=False)
         sent = True
         return render(request, 'online_registration/thanks.html', {
             'name': name,
