@@ -14,6 +14,7 @@ urlpatterns = [
     path('online_registration/', include('online_registration.urls', namespace='online_registration')),
     path('price/', include('price.urls')),
     path('api/v1/', include('api.urls')),
+    path('secret/', include('app4.urls', namespace='app4')),
 ]
 
 if settings.DEBUG:
