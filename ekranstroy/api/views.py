@@ -17,7 +17,9 @@ def cat_list(request):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     cats = Category.objects.all()[:10]
     serializer = CategorySerializer(cats, many=True)
-    return Response(serializer.data)
+    response = Response(serializer.data)
+    response['Access-Control-Allow-Origin'] = '*'
+    return response
 
 
 @api_view(['GET'])
