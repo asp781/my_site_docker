@@ -69,16 +69,16 @@ services:
       # Контейнер nginx должен быть запущен после контейнера web
       - web
 
-  certbot:
-    image: certbot/certbot
-    depends_on:
-      - nginx
-    container_name: certbot
-    restart: always
-    volumes:
-      - etc-letsencrypt:/etc/letsencrypt
-      - html:/var/html/
-    command: certonly --webroot --webroot-path=/var/html/ --email asp78@yandex.ru --agree-tos --no-eff-email -d ekranstroy.ru
+  # certbot:
+  #   image: certbot/certbot
+  #   depends_on:
+  #     - nginx
+  #   container_name: certbot
+  #   restart: always
+  #   volumes:
+  #     - etc-letsencrypt:/etc/letsencrypt
+  #     - html:/var/html/
+  #   command: certonly --webroot --webroot-path=/var/html/ --email asp78@yandex.ru --agree-tos --no-eff-email -d ekranstroy.ru
 
 volumes:
   # Новые тома
