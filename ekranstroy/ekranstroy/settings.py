@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     'likes.apps.LikesConfig',
     'api',
     'rest_framework',
-    'app4'
+    'app4',
+    'secret2'
 ]
 
 MIDDLEWARE = [

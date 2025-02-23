@@ -1,0 +1,92 @@
+<style>
+    table {
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    width: 100%; /* Ширина таблицы 100% от родительского элемента */
+    border: 1px solid #ddd; /* Параметры рамки */
+    font-family: Arial, sans-serif; /* Семейство шрифтов */
+}
+
+/* Добавляем отступы к ячейкам */
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Цвет заголовков */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50; /* Цвет кнопки */
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .button:hover {
+    background-color: #45a049; /* Цвет при наведении */
+  }
+
+  .button:active {
+    background-color: #408c44; /* Цвет при клике */
+    box-shadow: 0 5px #666; /* Тень при клике */
+    transform: translateY(4px); /* Сдвиг при клике */
+  }
+</style>
+
+<table border="1">
+    {% for record in purchased %}
+    <tr>
+        <td>{{record.date}}</td>
+        <td>{{record.title}}</td>
+        <td>{{record.amount}}</td>
+        <td>{{record.unit}}</td>
+        <td>{{record.price}}</td>
+        <td>{{record.total_price}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<h1>Закуплено: {{purchased_sum}}</h1>
+
+<table border="1">
+    {% for record in completed %}
+    <tr>
+        <td>{{record.date}}</td>
+        <td>{{record.title}}</td>
+        <td>{{record.amount}}</td>
+        <td>{{record.unit}}</td>
+        <td>{{record.price}}</td>
+        <td>{{record.total_price}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+<h1>Выполнено: {{completed_sum}}</h1>
+<table border="1">
+    {% for record in paid %}
+    <tr>
+        <td>{{record.date}}</td>
+        <td>{{record.title}}</td>
+        <td>{{record.amount}}</td>
+        <td>{{record.unit}}</td>
+        <td>{{record.price}}</td>
+        <td>{{record.total_price}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+<h1>Оплачено: {{paid_sum}}</h1>
+<h1></h1>
+<h1>БАЛАНС: {{balance}}</h1>

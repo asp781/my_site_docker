@@ -15,6 +15,7 @@ urlpatterns = [
     path('price/', include('price.urls')),
     path('api/v1/', include('api.urls')),
     path('secret/', include('app4.urls', namespace='app4')),
+    path('secret2/', include('secret2.urls', namespace='secret2')),
 ]
 
 if settings.DEBUG:
