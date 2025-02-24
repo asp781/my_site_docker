@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'taggit',
     'price',
     'likes.apps.LikesConfig',
+    'api',
+    'rest_framework',
+    'app4',
+    'secret2',
 ]
 
 MIDDLEWARE = [
