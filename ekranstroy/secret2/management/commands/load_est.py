@@ -9,7 +9,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         # file = "D:\Заказы\REV24.xlsx"
-        file = os.path.join(os.path.dirname(__file__), 'REV24.xlsx')
+        file = os.path.join(os.path.dirname(__file__), 'Сметы.xlsx')
         sheet_name='Рев24-33'
 
         try:
