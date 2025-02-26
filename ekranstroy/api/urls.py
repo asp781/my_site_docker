@@ -23,7 +23,7 @@ urlpatterns = [
     path('paid/<int:pk>/', views.PaidRetrieveUpdateDestroy.as_view(), name='paid-retrieve-update-destroy'),
 ]
 
-# http://127.0.0.1:8000/api/v1/estimates/ (список смет и создание новых)
-# http://127.0.0.1:8000/api/v1/estimates/1/ (получение, изменение, удаление сметы с id=1)
-# http://127.0.0.1:8000/api/v1/purchased/ (список записей о покупке и создание новых)
-# http://127.0.0.1:8000/api/v1/purchased/1/ (получение, изменение, удаление записи о покупке с id=1)
+# https://ekranstroy.ru/api/v1/estimates/ (список смет и создание новых)
+# https://ekranstroy.ru/api/v1/estimates/1/ (получение, изменение, удаление сметы с id=1)
+# https://ekranstroy.ru/api/v1/purchased/ (список записей о покупке и создание новых)
+# https://ekranstroy.ru/api/v1/purchased/1/ (получение, изменение, удаление записи о покупке с id=1)

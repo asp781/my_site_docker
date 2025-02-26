@@ -6,11 +6,12 @@ from secret2.models import *
 
 
 class Command(BaseCommand):
-    def handle(self, *args, **options):
+    def add_arguments(self, parser):
+        parser.add_argument('sheet', type=str, help='Имя листа')
 
-        # file = "D:\Заказы\REV24.xlsx"
+    def handle(self, *args, **options):
         file = os.path.join(os.path.dirname(__file__), 'Сметы.xlsx')
-        sheet_name='Сур22-139'
+        sheet_name = options.get('sheet')
 
         try:
             df = pd.read_excel(
