@@ -8,7 +8,7 @@ from .models import *
 
 @admin.register(Estimate)
 class EstimateAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'year', 'description']
+    list_display = ['id', 'name', 'year', 'description', 'slug']
     # inlines = [LineInline]
 
 @admin.register(Purchased)

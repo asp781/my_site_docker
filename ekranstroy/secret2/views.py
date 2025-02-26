@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.db.models import Sum
 from .models import *
 
-def index(request):
-    estimate = '1'
+def index(request,slug):
+    estimate = Estimate.objects.get(slug=slug)
     purchased = Purchased.objects.filter(estimate=estimate)
     completed = Completed.objects.filter(estimate=estimate)
     paid = Paid.objects.filter(estimate=estimate)
