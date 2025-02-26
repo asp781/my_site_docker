@@ -44,7 +44,7 @@ class Command(BaseCommand):
                 if str(data[row][cell]) == 'nan':
                     data[row][cell] = ''
 
-            for col in [4, 5]:
+            for col in [2, 4, 5]:
                 if '.' in data[row][col]:
                     if len(data[row][col].split('.')[1]) > 2:
                         data[row][col] = data[row][col].split('.')[0] + '.' + data[row][col].split('.')[1][:2]
