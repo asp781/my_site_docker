@@ -21,16 +21,10 @@ services:
     container_name: web
     restart: always
     volumes:
-      # Контейнер web будет работать с данными, хранящиеся в томе static_value,
-      # через свою директорию /app/static/
       - static_value:/app/static/
-
-      # Данные, хранящиеся в томе media_value, будут доступны в контейнере web
-      # через директорию /app/media/
       - media_value:/app/media/
-
-      # директория с файлами сайта для cerbot
       - html:/app/
+      - ./xlsx/Сметы.xlsx:/app/secret2/management/commands/Сметы.xlsx
 
     # "зависит от",
     depends_on:
