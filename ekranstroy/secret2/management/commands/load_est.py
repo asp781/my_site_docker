@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
         # file = "D:\Заказы\REV24.xlsx"
         file = os.path.join(os.path.dirname(__file__), 'Сметы.xlsx')
-        sheet_name='Рев24-33'
+        sheet_name='Сур22-139'
 
         try:
             df = pd.read_excel(
