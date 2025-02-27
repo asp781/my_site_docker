@@ -18,28 +18,28 @@ class Estimate(models.Model):
 
 
 class Purchased(models.Model):
-    date = models.CharField(max_length=255) # Дата
-    title = models.CharField(max_length=255) # Название
-    amount = models.CharField(max_length=255) # Сумма
-    unit = models.CharField(max_length=255) # Единица измерения
-    price = models.CharField(max_length=255) # Цена
-    total_price = models.CharField(max_length=10) # Общая стоимость
+    date = models.CharField(max_length=255, null=True, blank=True) # Дата
+    title = models.CharField(max_length=255, null=True, blank=True) # Название
+    amount = models.CharField(max_length=255, null=True, blank=True) # Сумма
+    unit = models.CharField(max_length=255, null=True, blank=True) # Единица измерения
+    price = models.CharField(max_length=255, null=True, blank=True) # Цена
+    total_price = models.CharField(max_length=255, null=True, blank=True) # Общая стоимость
     estimate = models.ForeignKey(Estimate, on_delete=models.CASCADE) # Смета
 
 class Completed(models.Model):
-    date = models.CharField(max_length=255) # Дата
-    title = models.CharField(max_length=255) # Название
-    amount = models.CharField(max_length=255) # Сумма
-    unit = models.CharField(max_length=255) # Единица измерения
-    price = models.CharField(max_length=255) # Цена
-    total_price = models.CharField(max_length=255) # Общая стоимость
+    date = models.CharField(max_length=255, null=True, blank=True) # Дата
+    title = models.CharField(max_length=255, null=True, blank=True) # Название
+    amount = models.CharField(max_length=255, null=True, blank=True) # Сумма
+    unit = models.CharField(max_length=255, null=True, blank=True) # Единица измерения
+    price = models.CharField(max_length=255, null=True, blank=True) # Цена
+    total_price = models.CharField(max_length=255, null=True, blank=True) # Общая стоимость
     estimate = models.ForeignKey(Estimate, on_delete=models.CASCADE) # Смета
 
 class Paid(models.Model):
-    date = models.CharField(max_length=255) # Дата
-    title = models.CharField(max_length=255) # Название
-    amount = models.CharField(max_length=255) # Сумма
-    unit = models.CharField(max_length=255) # Единица измерения
-    price = models.CharField(max_length=255) # Цена
-    total_price = models.CharField(max_length=255) # Общая стоимость
+    date = models.CharField(max_length=255, null=True, blank=True) # Дата
+    title = models.CharField(max_length=255, null=True, blank=True) # Название
+    amount = models.CharField(max_length=255, null=True, blank=True) # Сумма
+    unit = models.CharField(max_length=255, null=True, blank=True) # Единица измерения
+    price = models.CharField(max_length=255, null=True, blank=True) # Цена
+    total_price = models.CharField(max_length=255, null=True, blank=True) # Общая стоимость
     estimate = models.ForeignKey(Estimate, on_delete=models.CASCADE) # Смета
