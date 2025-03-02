@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from django.db.models import Sum
 from .models import *
 
 def index(request,slug):
     estimate = Estimate.objects.get(slug=slug)
-    purchased = Purchased.objects.filter(estimate=estimate)
-    completed = Completed.objects.filter(estimate=estimate)
-    paid = Paid.objects.filter(estimate=estimate)
+    purchased = Purchased.objects.filter(estimate=estimate).order_by('id')
+    completed = Completed.objects.filter(estimate=estimate).order_by('id')
+    paid = Paid.objects.filter(estimate=estimate).order_by('id')
 
     purchased_sum = round(sum(float(row.total_price) for row in purchased), 2)
     completed_sum = round(sum(float(row.total_price) for row in completed if row.total_price != ''), 2)
