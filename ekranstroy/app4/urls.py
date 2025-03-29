@@ -14,5 +14,5 @@ urlpatterns = [
     path('api/v1/records/<int:pk>/', RecordRetrieveUpdateDestroy.as_view(), name='record-retrieve-update-destroy'),
     ]
 
-# http://127.0.0.1:8000/secret/api/v1/records/
-# http://127.0.0.1:8000/secret/api/v1/records/7
+# http://ekranstroy.ru/secret/api/v1/records/
+# http://ekranstroy.ru/secret/api/v1/records/7
