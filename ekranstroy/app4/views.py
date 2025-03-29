@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from .forms import *
 from .models import *
 
+
 def index(request):
     records = Record.objects.all()
     if request.method == "POST":
@@ -32,3 +33,17 @@ class RecordUpdate(UpdateView):
     form_class = RecordForm
     # fields = ['name','amount','unit']
     success_url = reverse_lazy('app4:index_4')
+
+
+
+from rest_framework import generics
+from .serializers import RecordSerializer
+
+
+class RecordListCreate(generics.ListCreateAPIView):
+    queryset = Record.objects.all()
+    serializer_class = RecordSerializer
+
+class RecordRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Record.objects.all()
+    serializer_class = RecordSerializer

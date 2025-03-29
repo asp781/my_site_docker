@@ -4,4 +4,4 @@ from .models import *
 
 @admin.register(Record)
 class RecordAdmin(admin.ModelAdmin):
-    list_display = ['name', 'amount', 'unit']
+    list_display = ['id', 'name', 'amount', 'unit']

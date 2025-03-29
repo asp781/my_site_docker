@@ -9,4 +9,10 @@ urlpatterns = [
     path('', index, name='index_4'),
     path('delete_record/<int:pk>', delete_record, name='delete_record'),
     path('edit_record/<int:pk>', RecordUpdate.as_view(), name='edit_record'),
+
+    path('api/v1/records/', RecordListCreate.as_view(), name='record-list-create'),
+    path('api/v1/records/<int:pk>/', RecordRetrieveUpdateDestroy.as_view(), name='record-retrieve-update-destroy'),
     ]
+
+# http://127.0.0.1:8000/secret/api/v1/records/
+# http://127.0.0.1:8000/secret/api/v1/records/7
