@@ -41,7 +41,7 @@ from .serializers import RecordSerializer
 
 
 class RecordListCreate(generics.ListCreateAPIView):
-    queryset = Record.objects.all()
+    queryset = Record.objects.all().order_by('-id')
     serializer_class = RecordSerializer
 
 class RecordRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
