@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'app4',
-    'secret2'
+    'secret2',
     'chat',
 ]
 
