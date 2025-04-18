@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'app4',
     'secret2',
+    'channels',
     'chat',
 ]
 
