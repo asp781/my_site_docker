@@ -17,3 +17,4 @@ urlpatterns = [
 # pip install daphne
 # pip freeze > requirements.txt
 # http://localhost/chat/testroom/
+# https://ekranstroy.ru/chat/testroom/

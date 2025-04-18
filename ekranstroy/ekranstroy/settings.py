@@ -79,6 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ekranstroy.wsgi.application'
+ASGI_APPLICATION = "ekranstroy.asgi.application"
 
 
 # Database
