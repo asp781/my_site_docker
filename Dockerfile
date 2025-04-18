@@ -1,26 +1,29 @@
-# Создать образ на основе базового слоя python (там будет ОС и интерпретатор Python).
-# 3.7 — используемая версия Python.
-# slim — обозначение того, что образ имеет только необходимые компоненты для запуска,
-# он не будет занимать много места при развёртывании.
-FROM python:3.11-slim
+# Используем более свежую версию Python
+FROM python:3.11-slim-bookworm
 
-# Запустить команду создания директории внутри контейнера
+# Устанавливаем переменные окружения
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Создаем директорию для приложения
 RUN mkdir /app
 
-# Скопировать с локального компьютера файл зависимостей
-# в директорию /app.
+# Устанавливаем рабочую директорию
+# WORKDIR /app
+
+# Копируем requirements.txt
 COPY requirements.txt /app
 
-# Выполнить установку зависимостей внутри контейнера.
+# Устанавливаем зависимости
 RUN pip3 install -r /app/requirements.txt --no-cache-dir
 
-# Скопировать содержимое директории /ekranstroy c локального компьютера
-# в директорию /app.
+# Копируем все файлы приложения
+# COPY . /app/
 COPY ekranstroy/ /app
 
 # Сделать директорию /app рабочей директорией.
 WORKDIR /app
 
-# Выполнить запуск сервера разработки при старте контейнера.
-# CMD ["python3", "manage.py", "runserver", "0:8000"]
-CMD ["gunicorn", "ekranstroy.wsgi:application", "--bind", "0:8000" ]
+# Команда для запуска Gunicorn + Daphne
+# CMD ["sh", "-c", "daphne -b 0.0.0.0 -p 8000 ekranstroy.asgi:application"]
+CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "ekranstroy.asgi:application"]
