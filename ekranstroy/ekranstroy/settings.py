@@ -31,7 +31,6 @@ CSRF_TRUSTED_ORIGINS = [
     'http://*.ekranstroy.ru',
     'https://*.158.160.40.222',
     'https://*.ekranstroy.ru',
-    'web'
     ]
 
 # Application definition
