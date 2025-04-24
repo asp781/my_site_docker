@@ -30,10 +30,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
         print(text_data_json)
         # text_data_json приходит имя пользователя от Андроид-клиента, от Веб-клиента не приходит
         message = text_data_json["message"]
-        
-        username = text_data_json.get("username")
+
+        username = text_data_json.get("username") # сообщение от Андроид-клиента
         if not username:
-            username = self.username
+            username = self.username # сообщение от Веб-клиента
 
         # Отправляем сообщение в группу комнаты с именем пользователя
         await self.channel_layer.group_send(
