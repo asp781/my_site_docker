@@ -27,8 +27,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
     # Получаем сообщение от WebSocket
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        print(text_data_json)
+        print(text_data_json) # сюда приходит имя пользователя
         message = text_data_json["message"]
+        username = text_data_json["username"]
 
         # Отправляем сообщение в группу комнаты с именем пользователя
         await self.channel_layer.group_send(
@@ -36,7 +37,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
             {
                 "type": "chat.message",
                 "message": message,
-                "username": self.username,
+                # "username": self.username,
+                "username": username,
             },
         )
 
