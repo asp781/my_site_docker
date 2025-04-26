@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'likes.apps.LikesConfig',
     'api',
     'rest_framework',
+    'rest_framework.authtoken',
     'app4',
     'secret2',
     'channels',
