@@ -192,6 +192,16 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 # https://console.cloud.google.com/apis/credentials?project=ace-sequencer-415420
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",

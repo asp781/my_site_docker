@@ -10,6 +10,8 @@ urlpatterns = [
     path('completed/<int:pk>/', views.CompletedRetrieveUpdateDestroy.as_view(), name='completed-retrieve-update-destroy'),
     path('paid/', views.PaidListCreate.as_view(), name='paid-list-create'),
     path('paid/<int:pk>/', views.PaidRetrieveUpdateDestroy.as_view(), name='paid-retrieve-update-destroy'),
+
+    path('login/', views.LoginView.as_view(), name='login'),
 ]
 
 # https://ekranstroy.ru/api/v1/estimates/ (список смет и создание новых)
