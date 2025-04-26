@@ -11,6 +11,7 @@ class EstimateListCreate(generics.ListCreateAPIView):
 class EstimateRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Estimate.objects.all()
     serializer_class = EstimateSerializer
+    permission_classes = [AllowAny]  # Добавляем AllowAny
 
 class PurchasedListCreate(generics.ListCreateAPIView):
     queryset = Purchased.objects.all()
