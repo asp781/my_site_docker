@@ -1,5 +1,6 @@
 import requests
 import json
+#
 
 class AuthClient:
     def __init__(self, base_url="https://ekranstroy.ru/api/v1/"):
