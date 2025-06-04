@@ -6,36 +6,42 @@ from .serializers import EstimateSerializer, PurchasedSerializer, CompletedSeria
 class EstimateListCreate(generics.ListCreateAPIView):
     queryset = Estimate.objects.all()
     serializer_class = EstimateSerializer
-    permission_classes = [AllowAny]  # Добавляем AllowAny
+    permission_classes = [AllowAny]
 
 class EstimateRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Estimate.objects.all()
     serializer_class = EstimateSerializer
-    permission_classes = [AllowAny]  # Добавляем AllowAny
+    permission_classes = [AllowAny]
 
 class PurchasedListCreate(generics.ListCreateAPIView):
     queryset = Purchased.objects.all()
     serializer_class = PurchasedSerializer
+    permission_classes = [AllowAny]
 
 class PurchasedRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Purchased.objects.all()
     serializer_class = PurchasedSerializer
+    permission_classes = [AllowAny]
 
 class CompletedListCreate(generics.ListCreateAPIView):
     queryset = Completed.objects.all()
     serializer_class = CompletedSerializer
+    permission_classes = [AllowAny]
 
 class CompletedRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Completed.objects.all()
     serializer_class = CompletedSerializer
+    permission_classes = [AllowAny]
 
 class PaidListCreate(generics.ListCreateAPIView):
     queryset = Paid.objects.all()
     serializer_class = PaidSerializer
+    permission_classes = [AllowAny]
 
 class PaidRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Paid.objects.all()
     serializer_class = PaidSerializer
+    permission_classes = [AllowAny]
 
 from rest_framework import status
 from rest_framework.response import Response
