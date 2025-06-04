@@ -38,12 +38,15 @@ class RecordUpdate(UpdateView):
 
 from rest_framework import generics
 from .serializers import RecordSerializer
+from rest_framework.permissions import AllowAny
 
 
 class RecordListCreate(generics.ListCreateAPIView):
     queryset = Record.objects.all().order_by('-id')
     serializer_class = RecordSerializer
+    permission_classes = [AllowAny]
 
 class RecordRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Record.objects.all()
     serializer_class = RecordSerializer
+    permission_classes = [AllowAny]
